@@ -8,7 +8,7 @@ public class count_lowercase {
         int cnt=0;
         for(int i=0;i<s.length();i++){
             // if(s.charAt(i)>='a' && s.charAt(i)<='z') cnt++;
-            if(Character.isUpperCase(s.charAt(i))) cnt++;
+            if(Character.isLowerCase(s.charAt(i))) cnt++;
         }
         System.out.println(cnt);
         sc.close();
