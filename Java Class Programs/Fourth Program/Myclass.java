@@ -14,11 +14,13 @@ public class Myclass{
 
         double maxi=0,maxi_second=0;
         for(int i=0;i<emp.length;i++){
-            maxi=Math.max(maxi,emp[i].GetRating());
+            if(emp[i].Gettransport()==false){
+                maxi=Math.max(maxi,emp[i].GetRating());
+            }
         }
 
         for(int i=0;i<emp.length;i++){
-            if(emp[i].GetRating()<maxi && emp[i].GetRating()>maxi_second) maxi_second=emp[i].GetRating();
+            if(emp[i].Gettransport()==false && emp[i].GetRating()<maxi && emp[i].GetRating()>maxi_second) maxi_second=emp[i].GetRating();
         }
 
         for(int i=0;i<emp.length;i++){
@@ -52,7 +54,7 @@ public class Myclass{
         if(ans==null) System.out.println("No records");
         else {
             for(int i=0;i<ans.length;i++){
-                System.out.println(ans[i].GetId()+" "+ans[i].GetName());
+                System.out.println(ans[i].GetId()+"\n"+ans[i].GetName());
             }
         }
         sc.close();
