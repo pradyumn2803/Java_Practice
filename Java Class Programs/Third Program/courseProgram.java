@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class courseProgram{
     static int findAvgOfQuizByAdmin(Course c[],String value){
         int sum=0;
@@ -15,6 +16,17 @@ public class courseProgram{
             if(c[i].getHandson()<value){
                 ans=Arrays.copyOf(ans,ans.length+1);
                 ans[ans.length-1]=c[i];
+            }
+        }
+        // Arrays.sort(ans,new Sortbyhandson());
+
+        for(int i=0;i<ans.length;i++){
+            for(int j=0;j<ans.length-i-1;j++){
+                if(ans[j].getHandson()>ans[j+1].getHandson()){
+                    Course temp=ans[j];
+                    ans[j]=ans[j+1];
+                    ans[j+1]=temp;
+                }
             }
         }
         return (ans.length==0)?null:ans;
@@ -104,4 +116,10 @@ class Course{
          this.handson=handson;
     }
 
+}
+
+class Sortbyhandson implements Comparator<Course>{
+    public int compare(Course a,Course b){
+        return Integer.compare(a.getHandson(),b.getHandson());
+    }
 }
